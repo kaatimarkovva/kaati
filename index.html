@@ -3,103 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя презентация</title>
+    <title>Работа за 20.06.2026</title>
     <style>
         :root {
-            --bg: #f5f7fa;
+            --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #fafafa 100%);
             --card-bg: #ffffff;
-            --accent: #60a5fa;
-            --accent-hover: #3b82f6;
-            --text-main: #1e293b;
+            --accent: #7dd3fc;
+            --accent-hover: #38bdf8;
+            --text-main: #0f172a;
             --text-muted: #64748b;
             --border: #e2e8f0;
-            --shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-            --hover-shadow: 0 12px 28px rgba(96, 165, 250, 0.15);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --hover-shadow: 0 14px 35px rgba(124, 211, 252, 0.2);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(145deg, #f8fafc 0%, #eef2f7 100%);
+            background: var(--bg-gradient);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 24px;
+            padding: 20px;
             color: var(--text-main);
         }
 
         .card {
             background: var(--card-bg);
             width: 100%;
-            max-width: 500px;
-            border-radius: 18px;
+            max-width: 520px;
+            border-radius: 20px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
             overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
-            padding: 26px 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+            padding: 28px 24px;
             text-align: center;
             border-bottom: 1px solid var(--border);
         }
-        .header h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; }
-        .header p { font-size: 0.9rem; color: var(--text-muted); }
+        .header h1 { 
+            font-size: 1.6rem; 
+            font-weight: 700; 
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p { 
+            font-size: 0.95rem; 
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        .date-badge {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 12px;
+            background: #e0f2fe;
+            color: #0284c7;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
 
-        .content { padding: 22px; }
+        .content { padding: 24px; }
 
         .section-title {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.3px;
             color: var(--text-muted);
-            margin-bottom: 12px;
-            font-weight: 600;
+            margin: 20px 0 14px 0;
+            font-weight: 700;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #f1f5f9;
         }
+        .section-title:first-child { margin-top: 0; }
 
         .link-btn {
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 14px 16px;
+            padding: 15px 18px;
             margin-bottom: 10px;
             background: #fafbfc;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 14px;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.2s;
         }
 
         .link-btn:hover {
             background: #ffffff;
-            border-color: var(--accent);
-            transform: translateY(-2px);
+            border-color: var(--accent-hover);
+            transform: translateY(-3px);
             box-shadow: var(--hover-shadow);
         }
+        .link-btn:hover::before { opacity: 1; }
 
-        .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .icon { 
+            font-size: 1.4rem; 
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+        .link-btn:hover .icon { transform: scale(1.1); }
+        
         .link-text { flex: 1; }
-        .link-title { font-weight: 500; display: block; }
-        .link-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+        .link-title { 
+            font-weight: 600; 
+            display: block;
+            font-size: 1.05rem;
+        }
+        .link-sub { 
+            font-size: 0.8rem; 
+            color: var(--text-muted); 
+            margin-top: 3px;
+            font-family: monospace;
+        }
 
-        .divider { height: 1px; background: var(--border); margin: 20px 0; }
+        .divider { 
+            height: 1px; 
+            background: linear-gradient(to right, transparent, var(--border), transparent); 
+            margin: 22px 0; 
+        }
 
         .footer {
-            padding: 14px 24px;
+            padding: 16px 24px;
             background: #f8fafc;
             border-top: 1px solid var(--border);
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-muted);
+            line-height: 1.4;
         }
+        .footer strong { color: #475569; }
 
         @media (max-width: 480px) {
-            .card { border-radius: 14px; }
+            .card { border-radius: 16px; }
             .content { padding: 18px; }
+            .header { padding: 22px 18px; }
+            .link-btn { padding: 13px 16px; }
         }
     </style>
 </head>
@@ -108,12 +168,14 @@
     <div class="card">
         <div class="header">
             <h1>📚 Учебные материалы</h1>
-            <p>Нажмите на ссылку, чтобы открыть или скачать файл</p>
+            <p>Работа за 20.06.2026</p>
+            <span class="date-badge">203с • Последний урок</span>
         </div>
 
         <div class="content">
-            <div class="section-title">📄 Презентации и проверки</div>
-            <a href="СетьВводный.pptx" class="link-btn">
+            <div class="section-title">📄 Файлы для скачивания</div>
+            
+            <a href="СетьВводный.pptx" class="link-btn" target="_blank">
                 <span class="icon">📊</span>
                 <span class="link-text">
                     <span class="link-title">Презентация в формате .pptx</span>
@@ -121,10 +183,10 @@
                 </span>
             </a>
 
-            <a href="index.html" class="link-btn">
+            <a href="index.html" class="link-btn" target="_blank">
                 <span class="icon">🌐</span>
                 <span class="link-text">
-                    <span class="link-title">Файл проверки работы с кириллицей .html</span>
+                    <span class="link-title">Проверка работы с кириллицей</span>
                     <span class="link-sub">index.html</span>
                 </span>
             </a>
@@ -132,23 +194,27 @@
             <div class="divider"></div>
 
             <div class="section-title">🧩 Интерактивные кроссворды</div>
-            <a href="krossvordRU.html" class="link-btn">
+            
+            <a href="krossvordRU.html" class="link-btn" target="_blank">
                 <span class="icon">🧠</span>
                 <span class="link-text">
-                    <span class="link-title">кроссворд Анатомия</span>
+                    <span class="link-title">Кроссворд «Анатомия»</span>
+                    <span class="link-sub">10 слов • Графический интерфейс</span>
                 </span>
             </a>
 
-            <a href="krossvordFa.html" class="link-btn">
+            <a href="krossvordFa.html" class="link-btn" target="_blank">
                 <span class="icon">💊</span>
                 <span class="link-text">
-                    <span class="link-title">кроссворд Фармакология</span>
+                    <span class="link-title">Кроссворд «Фармакология»</span>
+                    <span class="link-sub">5 слов • Проверка ответов</span>
                 </span>
             </a>
         </div>
 
         <div class="footer">
-            💡 Для корректной работы все файлы должны лежать в одной папке
+            💡 Все файлы должны находиться в одной папке:<br>
+            <strong>~/2025/203с/Последний урок/</strong>
         </div>
     </div>
 
