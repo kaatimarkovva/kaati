@@ -1,16 +1,156 @@
-<!DOCTYRE html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моя презентация</title>
-  </head>
-  <body>
+    <style>
+        :root {
+            --bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --accent: #60a5fa;
+            --accent-hover: #3b82f6;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 12px 28px rgba(96, 165, 250, 0.15);
+        }
 
-    <p>
-      Нажмите, чтобы скачать или открыть презентацию:
-      <a href="СетьВводный.pptx">Презентация в формате .pptx</a>
-      Нажмите, чтобы скачать или открыть index.html:
-      <a href="index.html">Файл проверки работы с кириллицей .html</a>
-    </p>
-    
-  </body>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(145deg, #f8fafc 0%, #eef2f7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            color: var(--text-main);
+        }
+
+        .card {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+            padding: 26px 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .header h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; }
+        .header p { font-size: 0.9rem; color: var(--text-muted); }
+
+        .content { padding: 22px; }
+
+        .section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            background: #fafbfc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .link-btn:hover {
+            background: #ffffff;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .link-text { flex: 1; }
+        .link-title { font-weight: 500; display: block; }
+        .link-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+        .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+        .footer {
+            padding: 14px 24px;
+            background: #f8fafc;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 480px) {
+            .card { border-radius: 14px; }
+            .content { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <h1>📚 Учебные материалы</h1>
+            <p>Нажмите на ссылку, чтобы открыть или скачать файл</p>
+        </div>
+
+        <div class="content">
+            <div class="section-title">📄 Презентации и проверки</div>
+            <a href="СетьВводный.pptx" class="link-btn">
+                <span class="icon">📊</span>
+                <span class="link-text">
+                    <span class="link-title">Презентация в формате .pptx</span>
+                    <span class="link-sub">СетьВводный.pptx</span>
+                </span>
+            </a>
+
+            <a href="index.html" class="link-btn">
+                <span class="icon">🌐</span>
+                <span class="link-text">
+                    <span class="link-title">Файл проверки работы с кириллицей .html</span>
+                    <span class="link-sub">index.html</span>
+                </span>
+            </a>
+
+            <div class="divider"></div>
+
+            <div class="section-title">🧩 Интерактивные кроссворды</div>
+            <a href="krossvordRU.html" class="link-btn">
+                <span class="icon">🧠</span>
+                <span class="link-text">
+                    <span class="link-title">кроссворд Анатомия</span>
+                </span>
+            </a>
+
+            <a href="krossvordFa.html" class="link-btn">
+                <span class="icon">💊</span>
+                <span class="link-text">
+                    <span class="link-title">кроссворд Фармакология</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="footer">
+            💡 Для корректной работы все файлы должны лежать в одной папке
+        </div>
+    </div>
+
+</body>
 </html>
